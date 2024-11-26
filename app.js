@@ -26,7 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //connect database
-mongoose.connect('mongodb://localhost:27017/restapi')
+//mongoose.connect('mongodb://localhost:27017/restapi')
+mongoose.connect('mongodb+srv://doh3507:q6sp59oZsbjUKRUx@clusterne.imuma.mongodb.net/restapi')
   .then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
   .catch(err => console.log('>>>>>>>>> DB Error: ', err));
 

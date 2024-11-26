@@ -96,40 +96,6 @@ router.get('/all', async function(req, res) {
     }
   });
   
-  //thêm sv
-  router.get('/sinhvien/:MSSV', async function(req, res) {
-    try {
-        const sinhVien = await Sinhvien.findOne({ MSSV: req.params.MSSV });
-        if (!sinhVien) return res.status(404).send('Sinh viên không tồn tại.');
-        res.json(sinhVien);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});
-
-  
-  //thay đổi thông tin sv theo MSSV
-  router.put('/thaydoi:MSSV', async function(req, res)  {
-    try {
-        const sinhVien = await Sinhvien.findOneAndUpdate({ MSSV: req.params.MSSV }, req.body, { new: true });
-        if (!sinhVien) return res.status(404).send('Sinh viên không tồn tại.');
-        res.json(sinhVien);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-  });
-  
-  
-  //xóa sinh viên
-  router.delete('/xoa:MSSV', async function(req, res)  {
-    try {
-        const sinhVien = await Sinhvien.findOneAndDelete({ MSSV: req.params.MSSV });
-        if (!sinhVien) return res.status(404).send('Sinh viên không tồn tại.');
-        res.send('Sinh viên đã bị xóa.');
-    } catch (error) {
-        res.status(500).send(error);
-    }
-  });
   
   //lấy ds sv thuộc CNTT và DTB 9
   router.get('/cntt/dtb9', async function (req, res)  {

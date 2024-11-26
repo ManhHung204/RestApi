@@ -24,7 +24,7 @@ router.post ("/login", async function(req, res){{
       res.status(200).json({status:true ,message: "Dang nhap thanh cong", token: token , refreshtoken: refreshtoken});
     }
   } catch (e) {
-    res.status(400).json({status:false , message: "Loi xay ra"});
+    res.status(400).json({status:false , message: "Loi xay ra" + e});
     
   }
 }}
